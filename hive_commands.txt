@@ -23,5 +23,49 @@ hdfs dfs -du /new_dir2  #to find disk usage
 #hadoop >> hive
 #amazon s3 >> hive
 
+create database test;
+use test;
+show tables;
+create table emp(id int);
+managed table structure everyhing is managed by hive
+external table it is loosley coupled with data, when table is deleted data is not deleted
+
+
+# For data load from local
+load data local inpath 'file:///tmp/hive_class/depart_data.csv' into table department_data; 
+
+# Display column name
+set hive.cli.print.header = true;
+
+# Load data from hdfs location
+load data inpath '/tmp/hive_data_class_2/' into table department_data_from_hdfs;
+
+Create table iris_tab_external
+(
+length float, 
+width float, 
+length1  float, 
+width1 float, 
+typeof string
+) 
+row format delimited
+fields terminated by ','
+;
+
+set hive.exec.dynamic.partition=True;
+set hive.exec.dynamic.partition.mode=nonstrict;
+
+DESCRIBE FORMATTED <tablename>
+DESCRIBE EXTENDED <tablename>
+show create table table_name;
+
+
+
+insert into iris_partitioned1 partition(typeof) 
+Select id, length, width, length1, width1, typeof from iris_tab_external;
+
+
+
+
 
 
