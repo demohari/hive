@@ -1,0 +1,27 @@
+#hdfs report
+hdfs dfsadmin -report
+
+hdfs dfs -ls/ 
+hdfs dfs -mkdir /newdir                 # create new dir
+hdfs dfs -touch /new_file.txt           # create file
+hdfs dfs -cp /new_file.txt /new_dir2    #copy
+
+#to remove file
+hdfs dfs -rm /new_dir2/new_file.txt
+
+#to remove dir
+hdfs dfs -rm -r /new_dir2/new_file.txt
+
+hadoop version #hadoop version
+hdfs fsck / # to check kealth of hadoop
+
+hdfs dfs -du /new_dir2  #to find disk usage
+
+#hive is a datawarehouse tool to work with structured data
+#parallel computing
+#fast partioning bucketing since it uses parallel computing
+#hadoop >> hive
+#amazon s3 >> hive
+
+
+
